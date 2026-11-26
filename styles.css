@@ -113,7 +113,7 @@ html { scroll-behavior: smooth; }
   font: 0.85rem var(--mono); background: var(--accent-soft); color: var(--accent);
   padding: 4px 10px; border-radius: 6px;
 }
-.card { scroll-margin-top: 24px; }
+.card, .toc { scroll-margin-top: 24px; }
 
 /* Sections */
 section { scroll-margin-top: 24px; }
