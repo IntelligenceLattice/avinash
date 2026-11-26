@@ -15,9 +15,10 @@
       <div>
         <h1>Avinash Sakalabhaktula</h1>
         <p class="tagline">Software architecture · Security · Infrastructure</p>
-        <p class="intro">Architect and engineer across telecom and enterprise platforms. Standards work and public open-source repositories I&#39;ve built or contributed to: Broadband Forum CloudCO architecture and YANG models, ONAP and OPEN-O network automation under the Linux Foundation, and independent AI tooling.</p>
+        <p class="intro">Seasoned hands-on software, system and enterprise architect.</p>
         <div class="links">
           <a class="btn" href="https://github.com/rsys-asakalab" target="_blank" rel="noopener">GitHub profile</a>
+          <a class="btn" href="https://www.linkedin.com/in/avinashs-seniorarchitect" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn ghost" href="#opensource">Open-source projects</a>
           <a class="btn ghost" href="https://pypi.org/project/flowlog-trace/" target="_blank" rel="noopener">PyPI</a>
         </div>
@@ -33,7 +34,7 @@
     </nav>
 
     <section id="expertise">
-      <h2 class="section-title">Expertise <span>7</span></h2>
+      <h2 class="section-title">Expertise</h2>
       <p class="section-intro">Across telecom and enterprise platforms, from packet processing up to AI agents.</p>
       <div class="skills">
         <article class="skill" id="skill-agentic">
@@ -311,7 +312,7 @@
       const sub = items => `<ol>${items.map(i => `<li><a href="#${i.id}">${esc(i.name)}</a>${i.n ? ` <span>${i.n}</span>` : ""}</li>`).join("")}</ol>`;
       document.querySelectorAll("#standards-list .card").forEach((el, i) => el.id = `std-${i}`);
       document.getElementById("toc").innerHTML = `
-        <li><a href="#expertise">Expertise</a> <span>${skills.length}</span>${sub(skills)}</li>
+        <li><a href="#expertise">Expertise</a>${sub(skills)}</li>
         <li><a href="#standards">Standards contributions</a> <span>${STANDARDS.length}</span>${sub(STANDARDS.map((x, i) => ({ id: `std-${i}`, name: x.title.split(":")[0] + " · Broadband Forum" })))}</li>
         <li><a href="#opensource">Open-source projects</a> <span>${oss.length}</span>${sub(groups.map(g => ({ id: `cat-${g.id}`, name: g.name, n: g.items.length })))}</li>
         <li><a href="#pypi">PyPI packages (flowlog-trace)</a> <span>${pypi.length}</span></li>`;
