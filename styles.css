@@ -10,7 +10,7 @@
   --green: #15803d;
   --green-soft: #dcfce7;
   --radius: 12px;
-  --surface-glass: color-mix(in srgb, var(--surface) 68%, transparent);
+  --surface-glass: var(--surface);
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -36,7 +36,7 @@ html { font-size: 17px; }
 
 body {
   margin: 0;
-  background: var(--bg) url("images/watermark.svg") center center / contain no-repeat fixed;
+  background: var(--bg);
   color: var(--text);
   font: 17px/1.65 var(--font);
   -webkit-font-smoothing: antialiased;
@@ -44,15 +44,27 @@ body {
 
 a { color: inherit; }
 
-.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
 /* Hero */
 .hero {
   border-bottom: 1px solid var(--border);
-  background: transparent;
+  background: var(--surface);
   padding: 56px 0 44px;
 }
-.hero-inner { display: flex; gap: 28px; align-items: flex-start; }
+.hero-inner {
+  display: grid; grid-template-columns: auto 1fr minmax(320px, 440px);
+  gap: 28px; align-items: center;
+}
+.hero-inner > .avatar { align-self: start; margin-top: 6px; }
+.hero-art { width: 100%; height: auto; }
+@media (max-width: 1000px) {
+  .hero-inner { grid-template-columns: auto 1fr; }
+  .hero-art { grid-column: 1 / -1; max-width: 520px; justify-self: center; }
+}
+@media (prefers-color-scheme: dark) {
+  .hero-art { background: #f8fafc; border-radius: 12px; padding: 10px; }
+}
 .avatar {
   width: 96px; height: 96px; border-radius: 50%;
   border: 1px solid var(--border); flex-shrink: 0;
@@ -177,6 +189,6 @@ section { scroll-margin-top: 24px; }
 
 @media (max-width: 640px) {
   .hero { padding: 40px 0 32px; }
-  .hero-inner { flex-direction: column; gap: 16px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 16px; }
   h1 { font-size: 1.8rem; }
 }
