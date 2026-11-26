@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avinash Sakalabhaktula · Projects</title>
+  <meta name="description" content="Avinash Sakalabhaktula: expertise, standards work and public open-source repositories (GitHub: rsys-asakalab): Broadband Forum, ONAP, OPEN-O and independent projects.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <img class="avatar" src="https://github.com/rsys-asakalab.png?size=160" alt="Avinash Sakalabhaktula's GitHub avatar" width="96" height="96" onerror="this.onerror=null;this.src='images/favicon.svg'">
+      <div>
+        <h1>Avinash Sakalabhaktula</h1>
+        <p class="tagline">Software architecture · Security · Infrastructure</p>
+        <p class="intro">Architect and engineer across telecom and enterprise platforms. Standards work and public open-source repositories I&#39;ve built or contributed to: Broadband Forum CloudCO architecture and YANG models, ONAP and OPEN-O network automation under the Linux Foundation, and independent AI tooling.</p>
+        <div class="links">
+          <a class="btn" href="https://github.com/rsys-asakalab" target="_blank" rel="noopener">GitHub profile</a>
+          <a class="btn ghost" href="#opensource">Open-source projects</a>
+          <a class="btn ghost" href="https://pypi.org/project/flowlog-trace/" target="_blank" rel="noopener">PyPI</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="toc" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol id="toc"></ol>
+    </nav>
+
+    <section id="expertise">
+      <h2 class="section-title">Expertise <span>7</span></h2>
+      <p class="section-intro">Across telecom and enterprise platforms, from packet processing up to AI agents.</p>
+      <div class="skills">
+        <article class="skill" id="skill-agentic">
+          <h3>Deterministic agentic AI</h3>
+          <p>Multi-agent systems that behave predictably: graph-orchestrated LangGraph pipelines that parse deterministically first and use the LLM only to enrich, hybrid RAG retrieval (dense + sparse, RRF, re-ranking), and live tracing of how agents and MCP servers interact (Flowlog).</p>
+        </article>
+        <article class="skill" id="skill-training">
+          <h3>Model training</h3>
+          <p>Preparing data for, training and evaluating ML models, and building the embedding and retrieval layers that put them to work inside production AI systems.</p>
+        </article>
+        <article class="skill" id="skill-dataplane">
+          <h3>High-performance data plane</h3>
+          <p>Packet-processing and media paths for carrier network elements where throughput and latency matter, including hardening application-layer gateways (ALG) against NIST SP 800-53 and CIS benchmarks.</p>
+        </article>
+        <article class="skill" id="skill-mgmt">
+          <h3>Management plane</h3>
+          <p>YANG and NETCONF data models and northbound APIs: co-editor of Broadband Forum WT-454i2 (network map and equipment inventory), author of the CloudCO NBI section of WT-384i2, ONAP VNF package validation and OPEN-O health-check frameworks.</p>
+        </article>
+        <article class="skill" id="skill-control">
+          <h3>Control plane</h3>
+          <p>SDN orchestration and controller integration: OPEN-O southbound drivers for L3VPN, overlay VPN (IPsec, VxLAN), service chaining and OpenStack DC gateways, and access SDN M&amp;C interfaces for intent-based service fulfilment in BBF CloudCO.</p>
+        </article>
+        <article class="skill" id="skill-voip">
+          <h3>VoIP</h3>
+          <p>Carrier voice and media: SIP-based signalling, media processing and the network elements that carry real-time voice traffic.</p>
+        </article>
+        <article class="skill" id="skill-b2b">
+          <h3>B2B and B2C products</h3>
+          <p>B2B: carrier-grade products and standards for telecom operators and network vendors. B2C: consumer tools such as a cross-platform price-comparison browser extension, built from MVP scope through to monetisation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="standards">
+      <h2 class="section-title">Standards contributions <span id="standards-count"></span></h2>
+      <p class="section-intro">Broadband Forum working texts, ordered from most recent to oldest by date of contribution.</p>
+      <div id="standards-list" class="list"></div>
+    </section>
+
+    <section id="opensource">
+      <h2 class="section-title">Open-source projects <span id="repo-count"></span></h2>
+      <p class="section-intro">Public open-source repositories I built or contributed to, grouped by project. Within each group, ordered from most recent to oldest by the date of my last commit.</p>
+      <div id="repo-groups"></div>
+    </section>
+
+    <section id="pypi">
+      <h2 class="section-title">PyPI packages (flowlog-trace) <span id="pypi-count"></span></h2>
+      <p class="section-intro">Python packages I have published on the Python Package Index, most recent first.</p>
+      <div id="pypi-list" class="list"></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Everything on this page is ordered from most recent to oldest. Commit counts exclude merge commits; dates are my first and last commit or contribution. Stars refresh from the GitHub API on page load. © <span id="year"></span> Avinash Sakalabhaktula</p>
+  </footer>
+
+  <script>
+    const USER = "rsys-asakalab";
+
+    // Broadband Forum working texts are members-only; contribution IDs are kept off the public page.
+    const STANDARDS = [
+      {
+        title: "WT-454 Issue 2: YANG Modules for Network Map & Equipment Inventory",
+        org: "Broadband Forum · Provider Cloud Work Area · paired with WT-411 Issue 2",
+        role: "Co-editor",
+        status: "In progress",
+        desc: "Access SDN M&C interface for access network build and service fulfilment: topology and inventory model definitions and augmentations that an access SDN controller exposes to the CloudCO domain orchestrator.",
+        work: "Co-editor of the WT-411i2 / WT-454i2 project. Authoring the WT-454i2 baseline text and contributing NRM inventory model enhancements and use cases for mapping logical and physical topology to inventory.",
+        links: [
+          { label: "TR-454 Issue 1 (published)", url: "https://www.broadband-forum.org/pdfs/tr-454-1-0-0.pdf" },
+          { label: "BBF YANG repository", url: "https://github.com/BroadbandForum/yang" }
+        ],
+        from: "2024-07-22", updated: "2026-11-10"
+      },
+      {
+        title: "WT-384 Issue 2: Cloud Central Office 2.0 Reference Architecture",
+        org: "Broadband Forum · Provider Cloud Work Area · CloudCO Architecture",
+        role: "Contributor",
+        status: "Under development",
+        desc: "Second issue of the Cloud Central Office (CloudCO) reference architectural framework.",
+        work: "Reviewed and rewrote Section 6.5.7 on CloudCO northbound interfaces (NBI) and API capabilities, taking it through review at the Fall meeting to a final version accepted for incorporation into WT-384.",
+        links: [
+          { label: "TR-384 Issue 1 (published)", url: "https://www.broadband-forum.org/technical/download/TR-384.pdf" }
+        ],
+        from: "2025-12-10", updated: "2026-01-21"
+      }
+    ];
+
+    // Public repositories I built or contributed to. `from` / `updated` are my first and last commit.
+    const REPOS = [
+      {
+        cat: "pypi",
+        repo: "IntelligenceLattice/flowlog",
+        title: "flowlog-trace",
+        org: "PyPI · Intelligence Lattice · IntelligenceLattice/flowlog",
+        pip: "pip install flowlog-trace", version: "0.1.1", python: "Python ≥ 3.10",
+        links: [
+          { label: "PyPI: flowlog-trace", url: "https://pypi.org/project/flowlog-trace/" },
+          { label: "GitHub: IntelligenceLattice/flowlog", url: "https://github.com/IntelligenceLattice/flowlog" }
+        ],
+        role: "Author",
+        desc: "See how your processes, agents, and MCP servers talk to each other, as a live sequence diagram in your browser.",
+        work: "Wrote and shipped the initial public release (v0.1.0) and the 0.1.1 follow-up, published it on PyPI as flowlog-trace, and aligned the README, CLI and package docs.",
+        lang: "Python", commits: 6, from: "2026-11-23", updated: "2026-11-25"
+      },
+      {
+        cat: "onap",
+        repo: "onap/archived-vnfsdk-refrepo",
+        org: "ONAP · VNF SDK",
+        role: "Contributor",
+        desc: "VNF SDK reference repository, including the VNF marketplace.",
+        work: "Refactored the marketplace seed code, added CSAR validation to the marketplace, introduced HTTPS for the marketplace with nginx provisioning, migrated containers to Ubuntu 16.04, set up Docker Compose, and fixed Sonar and security findings.",
+        lang: "Java", commits: 16, from: "2017-08-30", updated: "2018-05-02"
+      },
+      {
+        cat: "onap",
+        repo: "onap/archived-vnfsdk-validation",
+        org: "ONAP · VNF SDK",
+        role: "Core contributor",
+        desc: "Validation library that checks VNF packages (CSAR / TOSCA templates) against defined schemas.",
+        work: "Built out the validation logic: MainServiceTemplate and attribute-level validation, custom validation, schemas and samples for new VNF types, CSIT support, unit tests and exception handling; added its CI job in onap/ci-management and fixed Sonar and security findings.",
+        lang: "Java", commits: 33, from: "2017-09-07", updated: "2018-03-19"
+      },
+      {
+        cat: "onap",
+        repo: "onap/archived---policy-engine",
+        org: "ONAP · Policy",
+        role: "Contributor",
+        desc: "ONAP Policy engine, including the PAP REST service.",
+        work: "Resolved critical and blocker Sonar findings across the policy engine and ONAP-PAP-REST.",
+        lang: "Java", commits: 4, from: "2017-08-22", updated: "2017-09-05"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdnhub-driver-huawei-overlay",
+        aka: "formerly sdno-driver-huawei-overlay",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Initial author",
+        desc: "SDN Hub southbound driver for overlay VPN (IPsec / VxLAN) on Huawei controllers.",
+        work: "Created the overlay driver microservice, integrated it with common services (driver manager, ESR), added VxLAN interface support, controller simulation and CLI mocking for tests, and built its unit and integration test suites.",
+        lang: "Java", commits: 15, from: "2016-08-11", updated: "2017-02-28"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdnhub-driver-huawei-openstack",
+        aka: "formerly sdno-driver-huawei-openstack",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Contributor",
+        desc: "SDN Hub southbound driver integrating OpenStack with Huawei DC gateways.",
+        work: "Built the OpenStack driver flow for DC gateway instance creation and IPsec at the DC gateway; updated health-check endpoints.",
+        lang: "Java", commits: 2, from: "2016-08-29", updated: "2017-04-24"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdnhub-driver-huawei-l3vpn",
+        aka: "formerly sdno-driver-huawei-l3vpn",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Initial author",
+        desc: "SDN Hub southbound driver for L3VPN services on the Huawei AC-WAN controller.",
+        work: "Created the driver from its seed: northbound API, service interface and model transformation for AC-WAN, with unit and integration test automation, Tomcat deployment scripts, common-services registration, Sonar fixes and health-check endpoints.",
+        lang: "Java", commits: 13, from: "2016-08-11", updated: "2017-02-16"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdnhub-driver-huawei-servicechain",
+        aka: "formerly sdno-driver-huawei-servicechain",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Contributor",
+        desc: "SDN Hub southbound driver for service function chaining on Huawei controllers.",
+        work: "Added unit test coverage, migrated the project into SDN Hub, and updated health-check endpoints.",
+        lang: "Java", commits: 3, from: "2016-09-20", updated: "2017-02-16"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdno-utils",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Contributor",
+        desc: "Shared utilities for SDN-O services and drivers.",
+        work: "Built the health-check framework used across SDN-O services and drivers, and fixed Sonar findings.",
+        lang: "Java", commits: 3, from: "2017-02-08", updated: "2017-02-15"
+      },
+      {
+        cat: "openo",
+        repo: "open-o/sdno-overlay",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Initial author",
+        desc: "Overlay VPN service for SDN-O, covering Site-to-DC connectivity.",
+        work: "Created the service seed (implementation and northbound interfaces, deployment scripts), then the Site-to-DC models for overlay VPNs, connections and endpoint groups, the IPsec and VxLAN service interfaces, and driver reachability configuration.",
+        lang: "Java", commits: 2, from: "2016-08-12", updated: "2016-09-07"
+      },
+      {
+        cat: "openo",
+        title: "SDN-O microservice seeds",
+        repo: "open-o/sdno-ipsec",
+        org: "OPEN-O · SDN Orchestrator",
+        role: "Initial author",
+        desc: "Initial code for four SDN-O network service microservices.",
+        work: "Created each service's seed: data models, northbound REST (ROA) definitions, service implementation interfaces and deployment scripts.",
+        links: [
+          { label: "sdno-ipsec", url: "https://github.com/open-o/sdno-ipsec" },
+          { label: "sdno-l2vpn", url: "https://github.com/open-o/sdno-l2vpn" },
+          { label: "sdno-l3vpn", url: "https://github.com/open-o/sdno-l3vpn" },
+          { label: "sdno-vxlan", url: "https://github.com/open-o/sdno-vxlan" }
+        ],
+        lang: "Java", commits: 4, from: "2016-08-12", updated: "2016-08-12"
+      }
+    ];
+
+    // Open-source groups, in display order. `placeholder` groups show a heading only.
+    const CATEGORIES = [
+      { id: "onap", name: "ONAP (VNF SDK · Policy)", intro: "Linux Foundation Open Network Automation Platform: VNF SDK and Policy." },
+      { id: "openo", name: "OPEN-O (SDN Hub · SDN-O)", intro: "Linux Foundation Open Orchestrator project, which merged into ONAP in 2017: SDN Hub southbound drivers and SDN-O network services." },
+      { id: "flexran", name: "FlexRAN", placeholder: true },
+      { id: "vovida", name: "Vovida", placeholder: true },
+      { id: "independent", name: "Independent projects", intro: "My own public repositories on GitHub." }
+    ];
+
+    let repos = REPOS.map(r => ({ ...r }));
+
+    const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+    const fmt = d => new Date(d).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
+    const period = p => p.from && fmt(p.from) !== fmt(p.updated) ? `${fmt(p.from)} – ${fmt(p.updated)}` : fmt(p.updated);
+
+    function card(p) {
+      const href = p.repo ? `https://github.com/${p.repo}` : (p.links?.[0]?.url || "#");
+      const heading = p.title || p.repo;
+      return `
+        <article class="card">
+          <div class="card-head">
+            <h3><a href="${esc(href)}" target="_blank" rel="noopener">${esc(heading)}</a></h3>
+            <span class="role${/author|owner|core|editor/i.test(p.role) ? " role-author" : ""}">${esc(p.role)}</span>
+          </div>
+          <p class="org">${esc(p.org || "")}${p.aka ? ` · ${esc(p.aka)}` : ""}</p>
+          <p class="desc">${esc(p.desc || "No description provided.")}</p>
+          ${p.work ? `<p class="work"><strong>My work:</strong> ${esc(p.work)}</p>` : ""}
+          ${p.pip ? `<p class="pip"><code>${esc(p.pip)}</code></p>` : ""}
+          ${p.contribs ? `<ul class="contribs">${p.contribs.map(c => `<li><code>${esc(c.id)}</code><span>${esc(c.text)}</span><em>${esc(c.date)} · ${esc(c.state)}</em></li>`).join("")}</ul>` : ""}
+          ${p.links ? `<p class="refs">${p.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}</p>` : ""}
+          <div class="meta">
+            ${p.status ? `<span class="status">${esc(p.status)}</span>` : ""}
+            ${p.version ? `<span>v${esc(p.version)}</span>` : ""}
+            ${p.python ? `<span>${esc(p.python)}</span>` : ""}
+            ${p.lang ? `<span class="lang"><i data-lang="${esc(p.lang)}"></i>${esc(p.lang)}</span>` : ""}
+            ${p.stars ? `<span>★ ${p.stars}</span>` : ""}
+            ${p.commits ? `<span>${p.commits} commit${p.commits === 1 ? "" : "s"}</span>` : ""}
+            ${p.contribs ? `<span>${p.contribs.length} contribution${p.contribs.length === 1 ? "" : "s"}</span>` : ""}
+            ${p.updated ? `<span>${period(p)}</span>` : ""}
+          </div>
+        </article>`;
+    }
+
+    function render() {
+      STANDARDS.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+      repos.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+      const pypi = repos.filter(r => r.cat === "pypi");
+      const oss = repos.filter(r => r.cat !== "pypi");
+      const groups = CATEGORIES
+        .map(c => ({ ...c, items: oss.filter(r => r.cat === c.id) }))
+        .filter(c => c.placeholder || c.items.length);
+
+      document.getElementById("standards-list").innerHTML = STANDARDS.map(card).join("");
+      document.getElementById("standards-count").textContent = STANDARDS.length;
+      document.getElementById("repo-count").textContent = oss.length;
+      document.getElementById("pypi-count").textContent = pypi.length;
+      document.getElementById("pypi-list").innerHTML = pypi.map(card).join("");
+      document.getElementById("repo-groups").innerHTML = groups.map(g => `
+        <div class="group" id="cat-${g.id}">
+          <h3 class="group-title">${esc(g.name)}${g.items.length ? ` <span>${g.items.length}</span>` : ""}</h3>
+          ${g.intro ? `<p class="group-intro">${esc(g.intro)}</p>` : ""}
+          ${g.items.length ? `<div class="list">${g.items.map(card).join("")}</div>` : ""}
+        </div>`).join("");
+
+      // Contents index: every section and its categories.
+      const skills = [...document.querySelectorAll(".skill")].map(el => ({ id: el.id, name: el.querySelector("h3").textContent }));
+      const sub = items => `<ol>${items.map(i => `<li><a href="#${i.id}">${esc(i.name)}</a>${i.n ? ` <span>${i.n}</span>` : ""}</li>`).join("")}</ol>`;
+      document.querySelectorAll("#standards-list .card").forEach((el, i) => el.id = `std-${i}`);
+      document.getElementById("toc").innerHTML = `
+        <li><a href="#expertise">Expertise</a> <span>${skills.length}</span>${sub(skills)}</li>
+        <li><a href="#standards">Standards contributions</a> <span>${STANDARDS.length}</span>${sub(STANDARDS.map((x, i) => ({ id: `std-${i}`, name: x.title.split(":")[0] + " · Broadband Forum" })))}</li>
+        <li><a href="#opensource">Open-source projects</a> <span>${oss.length}</span>${sub(groups.map(g => ({ id: `cat-${g.id}`, name: g.name, n: g.items.length })))}</li>
+        <li><a href="#pypi">PyPI packages (flowlog-trace)</a> <span>${pypi.length}</span></li>`;
+    }
+
+    // Refresh stars, and pick up any of my own public, non-fork repos automatically.
+    async function refresh() {
+      try {
+        const own = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&type=owner`);
+        if (own.ok) {
+          for (const g of await own.json()) {
+            if (g.fork || g.private || g.name.toLowerCase() === `${USER}.github.io`) continue;
+            if (repos.some(p => p.repo?.toLowerCase() === g.full_name.toLowerCase())) continue;
+            repos.push({ cat: "independent", repo: g.full_name, org: "Independent", role: "Owner", desc: g.description, lang: g.language, stars: g.stargazers_count, updated: g.pushed_at });
+          }
+          render();
+        }
+        const flowlog = await fetch("https://api.github.com/repos/IntelligenceLattice/flowlog");
+        if (flowlog.ok) { repos.find(p => p.repo === "IntelligenceLattice/flowlog").stars = (await flowlog.json()).stargazers_count; render(); }
+      } catch (_) { /* keep static data */ }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    render();
+    refresh();
+  </script>
+</body>
+</html>
