@@ -33,41 +33,6 @@
       <ol id="toc"></ol>
     </nav>
 
-    <section id="expertise">
-      <h2 class="section-title">Expertise</h2>
-      <p class="section-intro">Across telecom and enterprise platforms, from packet processing up to AI agents.</p>
-      <div class="skills">
-        <article class="skill" id="skill-agentic">
-          <h3>Deterministic agentic AI</h3>
-          <p>Multi-agent systems that behave predictably: graph-orchestrated LangGraph pipelines that parse deterministically first and use the LLM only to enrich, hybrid RAG retrieval (dense + sparse, RRF, re-ranking), and live tracing of how agents and MCP servers interact (Flowlog).</p>
-        </article>
-        <article class="skill" id="skill-training">
-          <h3>Model training</h3>
-          <p>Preparing data for, training and evaluating ML models, and building the embedding and retrieval layers that put them to work inside production AI systems.</p>
-        </article>
-        <article class="skill" id="skill-dataplane">
-          <h3>High-performance data plane</h3>
-          <p>Packet-processing and media paths for carrier network elements where throughput and latency matter, including hardening application-layer gateways (ALG) against NIST SP 800-53 and CIS benchmarks.</p>
-        </article>
-        <article class="skill" id="skill-mgmt">
-          <h3>Management plane</h3>
-          <p>YANG and NETCONF data models and northbound APIs: co-editor of Broadband Forum WT-454i2 (network map and equipment inventory), author of the CloudCO NBI section of WT-384i2, ONAP VNF package validation and OPEN-O health-check frameworks.</p>
-        </article>
-        <article class="skill" id="skill-control">
-          <h3>Control plane</h3>
-          <p>SDN orchestration and controller integration: OPEN-O southbound drivers for L3VPN, overlay VPN (IPsec, VxLAN), service chaining and OpenStack DC gateways, and access SDN M&amp;C interfaces for intent-based service fulfilment in BBF CloudCO.</p>
-        </article>
-        <article class="skill" id="skill-voip">
-          <h3>VoIP</h3>
-          <p>Carrier voice and media: SIP-based signalling, media processing and the network elements that carry real-time voice traffic.</p>
-        </article>
-        <article class="skill" id="skill-b2b">
-          <h3>B2B and B2C products</h3>
-          <p>B2B: carrier-grade products and standards for telecom operators and network vendors. B2C: consumer tools such as a cross-platform price-comparison browser extension, built from MVP scope through to monetisation.</p>
-        </article>
-      </div>
-    </section>
-
     <section id="standards">
       <h2 class="section-title">Standards contributions <span id="standards-count"></span></h2>
       <p class="section-intro">Broadband Forum working texts, ordered from most recent to oldest by date of contribution.</p>
@@ -308,11 +273,9 @@
         </div>`).join("");
 
       // Contents index: every section and its categories.
-      const skills = [...document.querySelectorAll(".skill")].map(el => ({ id: el.id, name: el.querySelector("h3").textContent }));
       const sub = items => `<ol>${items.map(i => `<li><a href="#${i.id}">${esc(i.name)}</a>${i.n ? ` <span>${i.n}</span>` : ""}</li>`).join("")}</ol>`;
       document.querySelectorAll("#standards-list .card").forEach((el, i) => el.id = `std-${i}`);
       document.getElementById("toc").innerHTML = `
-        <li><a href="#expertise">Expertise</a>${sub(skills)}</li>
         <li><a href="#standards">Standards contributions</a> <span>${STANDARDS.length}</span>${sub(STANDARDS.map((x, i) => ({ id: `std-${i}`, name: x.title.split(":")[0] + " · Broadband Forum" })))}</li>
         <li><a href="#opensource">Open-source projects</a> <span>${oss.length}</span>${sub(groups.map(g => ({ id: `cat-${g.id}`, name: g.name, n: g.items.length })))}</li>
         <li><a href="#pypi">PyPI packages (flowlog-trace)</a> <span>${pypi.length}</span></li>`;
