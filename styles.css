@@ -36,7 +36,7 @@ html { font-size: 17px; }
 
 body {
   margin: 0;
-  background: var(--bg) url("images/watermark.svg") center top / min(1400px, 140vw) auto no-repeat fixed;
+  background: var(--bg) url("images/watermark.svg") center center / contain no-repeat fixed;
   color: var(--text);
   font: 17px/1.65 var(--font);
   -webkit-font-smoothing: antialiased;
